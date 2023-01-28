@@ -7,6 +7,9 @@ const generateHTML = require('./src/generateHTML');
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+const OUTPUT_DIR = path.resolve(_dirname, 'output');
+const outputPath = path.join(OUTPUT_DIR, 'team.html');
+
 const questions = [
     "What role are you adding?",
     "Please enter employee's name: ",
@@ -19,37 +22,37 @@ const questions = [
 
 const employeeArray = [];
 
-function init () {
-    function roleSelect () {
-        inquirer
-            .prompt([
-                {
-                    type: 'list',
-                    name: 'roleType',
-                    message: questions[0],
-                    choices: ['Manager', 'Engineer', 'Intern', 'Team roles complete']
-                }
-            ])
-            .then(function (roleSelect) {
-                switch(roleSelect.roleType) {
-                    case 'Manager':
-                        addManager();
-                        break;
-                    case 'Engineer':
-                        addEngineer();
-                        break;
-                    case 'Intern':
-                        addIntern();
-                        break;
 
-                    default:
-                        buildHTML();
-                }
-            })
-    }
+function roleSelect () {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'roleType',
+                message: questions[0],
+                choices: ['Manager', 'Engineer', 'Intern', 'Team roles complete']
+            }
+        ])
+        .then(function (roleSelect) {
+            switch(roleSelect.roleType) {
+                case 'Manager':
+                    addManager();
+                    break;
+                case 'Engineer':
+                    addEngineer();
+                    break;
+                case 'Intern':
+                    addIntern();
+                    break;
+
+                default:
+                    teamComplete();
+            }
+        })
 };
 
 function addManager () {
+    console.log('\nAdding New Manager');
     inquirer
         .prompt([
             {
@@ -85,6 +88,7 @@ function addManager () {
 };
 
 function addEngineer () {
+    console.log('\nAdding New Engineer');
     inquirer
         .prompt([
             {
@@ -120,6 +124,7 @@ function addEngineer () {
 };
 
 function addIntern () {
+    console.log('\nAdding New Intern');
     inquirer
         .prompt([
             {
@@ -154,6 +159,10 @@ function addIntern () {
         })
 };
 
-roleSelect();
+function teamComplete () {
+    console.log("Team Profiles Complete!");
 
-init();
+    fs.writeFileSync(outputPath, generateHTML(employeeArray), 'UTF-8')
+};
+
+roleSelect();
