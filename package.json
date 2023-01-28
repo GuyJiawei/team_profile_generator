@@ -1,0 +1,26 @@
+{
+  "name": "team_profile_generator",
+  "version": "1.0.0",
+  "description": "CLI application to generate webpage with organisations team profiles",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuyJiawei/team_profile_generator.git"
+  },
+  "author": "Guy Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuyJiawei/team_profile_generator/issues"
+  },
+  "homepage": "https://github.com/GuyJiawei/team_profile_generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^29.4.1"
+  }
+}
