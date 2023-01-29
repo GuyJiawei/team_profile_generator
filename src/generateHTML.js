@@ -3,14 +3,14 @@ const generateTeamCards = (team) => {
     const genManager = (manager) => {
         let managerHtml = `
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h2 class="card-title">${manager.getName}</h2>
+        <div class="card-body bg-primary">
+            <h2 class="card-title">${manager.name}</h2>
             <p class="card-text">Manager</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${manager.getId}</li>
-            <li class="list-group-item">Email: ${manager.getEmail}</li>
-            <li class="list-group-item">Office Number: ${manager.getOfficeNumber}</li>
+            <li class="list-group-item">ID: ${manager.id}</li>
+            <li class="list-group-item">Email: ${manager.email}</li>
+            <li class="list-group-item">Office Number: ${manager.OfficeNumber}</li>
         </ul>
         </div>`;
         html.push(managerHtml);
@@ -19,14 +19,14 @@ const generateTeamCards = (team) => {
     const genEngineer = (engineer) => {
         let engineerHtml = `
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h2 class="card-title">${engineer.getName}</h2>
+        <div class="card-body bg-primary">
+            <h2 class="card-title">${engineer.name}</h2>
             <p class="card-text">Engineer</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineer.getId}</li>
-            <li class="list-group-item">Email: ${engineer.getEmail}</li>
-            <li class="list-group-item">GitHub: ${engineer.getGitHub}</li>
+            <li class="list-group-item">ID: ${engineer.id}</li>
+            <li class="list-group-item">Email: ${engineer.email}</li>
+            <li class="list-group-item">GitHub: ${engineer.gitHub}</li>
         </ul>
         </div>`;
         html.push(engineerHtml);
@@ -35,14 +35,14 @@ const generateTeamCards = (team) => {
     const genIntern = (intern) => {
         let internHtml = `
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h2 class="card-title">${intern.getName}</h2>
+        <div class="card-body bg-primary">
+            <h2 class="card-title">${intern.name}</h2>
             <p class="card-text">Intern</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${intern.getId}</li>
-            <li class="list-group-item">Email: ${intern.getEmail}</li>
-            <li class="list-group-item">University: ${intern.getUniversity}</li>
+            <li class="list-group-item">ID: ${intern.id}</li>
+            <li class="list-group-item">Email: ${intern.email}</li>
+            <li class="list-group-item">University: ${intern.university}</li>
         </ul>
         </div>`;
         html.push(internHtml);
