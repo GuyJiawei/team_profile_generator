@@ -19,7 +19,7 @@ test("Get engineer email using engineer.email", () => {
     expect(engineer.email).toBe('john@wernhamhogg.co.uk');
 })
 
-test("Get engineer office number using manager.gitHub", () => {
+test("Get engineer office number using engineer.gitHub", () => {
     expect(engineer.gitHub).toBe('johngithub');
 })
 
