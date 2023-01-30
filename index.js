@@ -1,11 +1,13 @@
-// Import required dependencies
+// Import required Modules
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-
 const generateHTML = require('./src/generateHTML');
 
+// Import required library
 const fs = require('fs');
+
+// Import required dependencies
 const inquirer = require('inquirer');
 const path = require('path');
 
@@ -38,6 +40,7 @@ function roleSelect () {
                 choices: ['Manager', 'Engineer', 'Intern', 'Team roles complete']
             }
         ])
+        // Switch case to determine the selected role
         .then(function (roleSelect) {
             switch(roleSelect.roleType) {
                 case 'Manager':
@@ -84,11 +87,13 @@ function addManager () {
             }
         ])
         .then(managerInputs => {
+            // Destructuring the managerInputs object
             const {name, id, email, officeNumber} = managerInputs;
             const manager = new Manager (name, id, email, officeNumber);
-
+            // Pushing the manager object to the employeeArray
             employeeArray.push(manager)
             console.log(managerInputs);
+            // Recalling the roleSelect function to prompt for adding another employee
             roleSelect();
         })
 };
@@ -121,11 +126,13 @@ function addEngineer () {
             }
         ])
         .then(engineerInputs => {
+            // Destructuring the engineerInputs object
             const {name, id, email, gitHub} = engineerInputs;
             const engineer = new Engineer (name, id, email, gitHub);
-
+            // Pushing the manager object to the employeeArray
             employeeArray.push(engineer)
             console.log(engineerInputs);
+            // Recalling the roleSelect function to prompt for adding another employee
             roleSelect();
         })
 };
@@ -158,11 +165,13 @@ function addIntern () {
             }
         ])
         .then(internInputs => {
+            // Destructuring the internInputs object
             const {name, id, email, university} = internInputs;
             const intern = new Intern (name, id, email, university);
-
+            // Pushing the manager object to the employeeArray
             employeeArray.push(intern)
             console.log(internInputs);
+            // Recalling the roleSelect function to prompt for adding another employee
             roleSelect();
         })
 };
