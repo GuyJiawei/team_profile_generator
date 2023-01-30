@@ -8,9 +8,11 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
 
+// Define the output directory and file path path
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
 const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
+// Array of questions for user input
 const questions = [
     "What role are you adding?",
     "Please enter employee's name: ",
@@ -21,9 +23,10 @@ const questions = [
     "Please enter intern's univeristy: "
 ];
 
+// Array to store employee objects
 const employeeArray = [];
 
-
+// Function to prompt user to select role type
 function roleSelect () {
     inquirer
         .prompt([
@@ -52,6 +55,7 @@ function roleSelect () {
         })
 };
 
+// Function to add Manager role
 function addManager () {
     console.log('\nAdding New Manager');
     inquirer
@@ -88,6 +92,7 @@ function addManager () {
         })
 };
 
+// Function to add Engineer role
 function addEngineer () {
     console.log('\nAdding New Engineer');
     inquirer
@@ -124,6 +129,7 @@ function addEngineer () {
         })
 };
 
+// Function to add Intern role
 function addIntern () {
     console.log('\nAdding New Intern');
     inquirer
@@ -160,10 +166,14 @@ function addIntern () {
         })
 };
 
+// Function to write to a file and log a completion message
 function teamComplete () {
+    // Logs message to console indicating that team profiles are complete
     console.log("Team Profiles Complete!");
 
+    // Writes the generated HTML to a file using the provided output path and UTF-8 encoding
     fs.writeFileSync(outputPath, generateHTML(employeeArray), 'UTF-8')
 };
 
+// Calls the roleSelect function to start the process
 roleSelect();
