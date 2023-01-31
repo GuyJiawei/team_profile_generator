@@ -1,53 +1,61 @@
 const generateTeamCards = (team) => {
+    //Array to hold the generated HTML for each employee
     const html = [];
+    //Function to generate HTML for Manager employee
     const genManager = (manager) => {
         let managerHtml = `
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h2 class="card-title">${manager.getName}</h2>
+        <div class="card-body bg-primary">
+            <h2 class="card-title">${manager.name}</h2>
             <p class="card-text">Manager</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${manager.getId}</li>
-            <li class="list-group-item">Email: ${manager.getEmail}</li>
-            <li class="list-group-item">Office Number: ${manager.getOfficeNumber}</li>
+            <li class="list-group-item">ID: ${manager.id}</li>
+            <li class="list-group-item">Email: ${manager.email}</li>
+            <li class="list-group-item">Office Number: ${manager.OfficeNumber}</li>
         </ul>
         </div>`;
+        //Pushing the generated HTML for Manager to the html array
         html.push(managerHtml);
     };
     
+    //Function to generate HTML for Engineer employee
     const genEngineer = (engineer) => {
         let engineerHtml = `
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h2 class="card-title">${engineer.getName}</h2>
+        <div class="card-body bg-primary">
+            <h2 class="card-title">${engineer.name}</h2>
             <p class="card-text">Engineer</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineer.getId}</li>
-            <li class="list-group-item">Email: ${engineer.getEmail}</li>
-            <li class="list-group-item">GitHub: ${engineer.getGitHub}</li>
+            <li class="list-group-item">ID: ${engineer.id}</li>
+            <li class="list-group-item">Email: ${engineer.email}</li>
+            <li class="list-group-item">GitHub: ${engineer.gitHub}</li>
         </ul>
         </div>`;
+        //Pushing the generated HTML for Engineer to the html array
         html.push(engineerHtml);
     };
 
+    //Function to generate HTML for Intern employee
     const genIntern = (intern) => {
         let internHtml = `
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h2 class="card-title">${intern.getName}</h2>
+        <div class="card-body bg-primary">
+            <h2 class="card-title">${intern.name}</h2>
             <p class="card-text">Intern</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${intern.getId}</li>
-            <li class="list-group-item">Email: ${intern.getEmail}</li>
-            <li class="list-group-item">University: ${intern.getUniversity}</li>
+            <li class="list-group-item">ID: ${intern.id}</li>
+            <li class="list-group-item">Email: ${intern.email}</li>
+            <li class="list-group-item">University: ${intern.university}</li>
         </ul>
         </div>`;
+        //Pushing the generated HTML for Intern to the html array
         html.push(internHtml);
     };
 
+    //Looping through the team array and calling the relevant function for each employee type
     for (let i = 0; i < team.length; i++) {
         switch (team[i].getRole()) {
             case "Manager":
@@ -61,7 +69,7 @@ const generateTeamCards = (team) => {
                 break;
         }
     };
-
+    // Return the generated HTML and a string
     return html.join('');
 }
 
