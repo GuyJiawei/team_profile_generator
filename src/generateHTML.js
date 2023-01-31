@@ -69,7 +69,7 @@ const generateTeamCards = (team) => {
                 break;
         }
     };
-
+    // Return the generated HTML and a string
     return html.join('');
 }
 
