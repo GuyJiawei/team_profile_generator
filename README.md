@@ -1,4 +1,4 @@
-# Professional README Generator
+# Team Profile Generator
 
   ![License Badge](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -46,4 +46,8 @@
 
   ## Demo
 
-  ![GIF](./assets/Demo.gif)
+  ![GIF](./Assets/Demo.gif)
+
+  ## Screenshot
+
+  ![Screenshot](./Assets/html_pic.png)
